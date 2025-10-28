@@ -16,7 +16,7 @@ function App() {
     const data = await res.json();
     setNotes(data);
   };
-
+console.log(notes)
   const addNote = async () => {
     if (!title || !content) return;
 

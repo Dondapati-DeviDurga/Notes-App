@@ -11,7 +11,7 @@ mongoose.connect("mongodb+srv://Vikramdb:Vikram1636@cluster0.unuid.mongodb.net/"
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
+console.log("Hello")
 // Define Note model
 const Note = mongoose.model("Note", {
   title: String,
