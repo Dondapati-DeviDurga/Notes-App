@@ -14,13 +14,13 @@ export class AppComponent implements OnInit {
   title = '';
   content = '';
   editId: string | null = null;
-
+  url:string="https://notes-app-server-q9rc.onrender.com"
   ngOnInit(): void {
     this.fetchNotes();
   }
 
   async fetchNotes() {
-    const res = await fetch('http://localhost:3000/notes');
+    const res = await fetch(`${this.url}/notes`);
     this.notes = await res.json();
     console.log(this.notes);
   }
@@ -32,14 +32,14 @@ export class AppComponent implements OnInit {
 
     if (this.editId) {
       // UPDATE existing note
-      await fetch(`http://localhost:3000/notes/${this.editId}`, {
+      await fetch(`${this.url}/notes/${this.editId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(note),
       });
     } else {
       // CREATE new note
-      await fetch('http://localhost:3000/notes', {
+      await fetch(`${this.url}/notes`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(note),
