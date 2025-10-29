@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
   }
 
   async deleteNote(id: string) {
-    await fetch(`http://localhost:3000/notes/${id}`, {
+    await fetch(`${this.url}/notes/${id}`, {
       method: 'DELETE',
     });
     this.fetchNotes();
