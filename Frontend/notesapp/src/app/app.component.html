@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Notes App</h1>
+
+  <div class="form">
+    <input
+      type="text"
+      placeholder="Title"
+      [(ngModel)]="title"
+    />
+    <input
+      type="text"
+      placeholder="Content"
+      [(ngModel)]="content"
+    />
+    <button (click)="addNote()">
+      {{ editId ? 'Update Note' : 'Add Note' }}
+    </button>
+  </div>
+
+  <ul class="notes-list">
+    <li *ngFor="let note of notes">
+      <div>
+        <strong>{{ note.title }}</strong>: {{ note.content }}
+      </div>
+      <div>
+        <button (click)="editNote(note)">Edit</button>
+        <button (click)="deleteNote(note._id)">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div>

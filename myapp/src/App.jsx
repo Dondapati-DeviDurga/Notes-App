@@ -16,10 +16,12 @@ function App() {
     const data = await res.json();
     setNotes(data);
   };
-console.log(notes)
-  const addNote = async () => {
-    if (!title || !content) return;
 
+  const addNote = async () => {
+    if (!title || !content) {
+      alert("Please enter data")
+      return;
+    }
     if (editId) {
       // UPDATE existing note
       await fetch(`http://localhost:3000/notes/${editId}`, {
